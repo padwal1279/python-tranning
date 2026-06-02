@@ -11,7 +11,9 @@ print("Student Name:", student["name"])
 print("College Name:", student["college"])
 print("Student semester:", student["semester"])
 print("Student age:", student["age"])
-print("Student roll no:", student["roll_no"])
+print("Student roll no", student["roll_no"])
+
+
 
 
 

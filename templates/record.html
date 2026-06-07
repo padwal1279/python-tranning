@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Voter Records</h2>
+
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Vote</th>
+    </tr>
+
+    {% for voter in voters %}
+    <tr>
+        <td>{{ voter.id }}</td>
+        <td>{{ voter.name }}</td>
+        <td>{{ voter.vote }}</td>
+    </tr>
+    {% endfor %}
+
+</table>
+{% endblock %}

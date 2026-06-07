@@ -34,7 +34,7 @@ def records():
         Name: {voter['name']} <br>
         City: {voter['city']} <br>
         Voted: {voter['voted']}
-        </p>
+        </p>-=
         <hr>
         """
     
@@ -49,6 +49,8 @@ def status():
 
     for voter in voters:
         if voter["voted"] == "Yes":
+
+            
             voted_count += 1
 
     return f"""

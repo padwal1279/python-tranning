@@ -1,22 +1,51 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h2>Voter Records</h2>
 
-<table border="1">
-    <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Vote</th>
-    </tr>
+<div class="container mt-5">
 
-    {% for voter in voters %}
-    <tr>
-        <td>{{ voter.id }}</td>
-        <td>{{ voter.name }}</td>
-        <td>{{ voter.vote }}</td>
-    </tr>
-    {% endfor %}
+    <h2 class="text-center mb-4">Voter Records</h2>
 
-</table>
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped table-hover text-center">
+
+            <thead class="table-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Voter Name</th>
+                    <th>Voter ID</th>
+                    <th>Candidate</th>
+                    <th>City</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for voter in voters %}
+                <tr>
+                    <td>{{ voter.id }}</td>
+                    <td>{{ voter.voter_name }}</td>
+                    <td>{{ voter.voter_id }}</td>
+                    <td>{{ voter.candidate }}</td>
+                    <td>{{ voter.city }}</td>
+                    <td>
+    <a href="{{ url_for('edit_vote', voter_id=voter.id) }}"
+       class="btn btn-warning btn-sm">
+        Edit
+    </a>
+
+    <a href="{{ url_for('delete_vote', voter_id=voter.id) }}"
+       class="btn btn-danger btn-sm">
+        Delete
+    </a>
+</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+
+        </table>
+    </div>
+
+</div>
+
 {% endblock %}

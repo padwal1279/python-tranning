@@ -13,7 +13,28 @@ init_db()
 
 @app.route("/")
 def home():
-    return render_template("home.html")
+    conn = get_db()
+
+    total_voters = conn.execute(
+        "SELECT COUNT(*) FROM voters"
+    ).fetchone()[0]
+
+    total_candidates = conn.execute(
+        "SELECT COUNT(DISTINCT candidate) FROM voters"
+    ).fetchone()[0]
+
+    total_cities = conn.execute(
+        "SELECT COUNT(DISTINCT city) FROM voters"
+    ).fetchone()[0]
+
+    conn.close()
+
+    return render_template(
+        "home.html",
+        total_voters=total_voters,
+        total_candidates=total_candidates,
+        total_cities=total_cities
+    )
 
 
 @app.route("/add_vote", methods=["GET", "POST"])
@@ -41,10 +62,29 @@ def add_vote():
 
 @app.route("/records")
 def records():
-    voters = get_all_voters()
-    return render_template("records.html", voters=voters)
+    search = request.args.get("search", "").strip()
 
+    conn = get_db()
 
+    if search:
+        voters = conn.execute("""
+            SELECT * FROM voters
+            WHERE voter_name LIKE ?
+               OR voter_id LIKE ?
+            ORDER BY id DESC
+        """, (f"%{search}%", f"%{search}%")).fetchall()
+    else:
+        voters = conn.execute(
+            "SELECT * FROM voters ORDER BY id DESC"
+        ).fetchall()
+
+    conn.close()
+
+    return render_template(
+        "records.html",
+        voters=voters,
+        search=search
+    )
 @app.route("/about")
 def about():
     return render_template("about.html")

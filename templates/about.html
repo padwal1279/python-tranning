@@ -3,16 +3,75 @@
 {% block content %}
 
 <div class="container mt-5">
-    <h2>About Online Voting System</h2>
 
-    <p>
-        This project is a simple Online Voting System developed using
-        Python, Flask, HTML, Bootstrap and SQLite.
-    </p>
+    <!-- About Header -->
+    <div class="text-center mb-5">
+        <h1 class="display-5 fw-bold text-primary">
+            🗳️ About Online Voting System
+        </h1>
 
-    <p>
-        It allows users to submit their vote and view voter records.
-    </p>
+        <p class="lead text-muted">
+            A simple and user-friendly voting management project.
+        </p>
+    </div>
+
+    <!-- Project Information -->
+    <div class="row g-4">
+
+        <div class="col-md-6">
+            <div class="card h-100 shadow-sm border-0">
+                <div class="card-body p-4">
+                    <h3 class="text-primary">📌 About the Project</h3>
+
+                    <p class="mt-3">
+                        This project is a simple Online Voting System developed
+                        using Python, Flask, HTML, Bootstrap and SQLite.
+                    </p>
+
+                    <p>
+                        It is designed to manage voter information and voting
+                        records in an easy and organized way.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Features -->
+        <div class="col-md-6">
+            <div class="card h-100 shadow-sm border-0">
+                <div class="card-body p-4">
+                    <h3 class="text-success">✨ Features</h3>
+
+                    <ul class="mt-3">
+                        <li>Add voter and vote information</li>
+                        <li>View voter records</li>
+                        <li>Edit voter records</li>
+                        <li>Delete voter records</li>
+                        <li>Simple and responsive interface</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Technology Section -->
+    <div class="card shadow-sm border-0 mt-4">
+        <div class="card-body p-4 text-center">
+
+            <h3 class="text-primary">💻 Technologies Used</h3>
+
+            <div class="mt-3">
+                <span class="badge bg-primary m-1">Python</span>
+                <span class="badge bg-success m-1">Flask</span>
+                <span class="badge bg-danger m-1">HTML</span>
+                <span class="badge bg-info text-dark m-1">Bootstrap</span>
+                <span class="badge bg-dark m-1">SQLite</span>
+            </div>
+
+        </div>
+    </div>
+
 </div>
 
 {% endblock %}

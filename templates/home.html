@@ -1,58 +1,110 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>ONLINE VOTING System</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-          rel="stylesheet">
-</head>
-<div class="container mt-5 text-center">
-        <h1>Welcome to Online Voting System</h1>
-        <p class="lead">A simple and secure online voting project.</p>
+{% extends 'base.html' %}
 
-        <a href="{{ url_for('add_vote') }}" class="btn btn-primary">
-            Add Vote
-        </a>
+{% block content %}
 
-        <a href="{{ url_for('records') }}" class="btn btn-success">
-            View Records
-        </a>
-    </div>
+<div class="container mt-5">
 
-</body>
-</html>
-<body>
+    <!-- Hero Section -->
+    <div class="p-5 mb-5 bg-light rounded-4 text-center shadow-sm">
 
-    <!-- Bootstrap Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="{{ url_for('home') }}">
-                <strong>ONLINE VOTING System</strong>
+        <h1 class="display-4 fw-bold text-primary">
+            🗳️ Online Voting System
+        </h1>
+
+        <p class="lead mt-3">
+            A simple, secure and user-friendly voting management system.
+        </p>
+
+        <p class="text-muted">
+            Manage voter records, add votes and keep voting information organized.
+        </p>
+
+        <div class="mt-4">
+            <a href="{{ url_for('add_vote') }}"
+               class="btn btn-primary btn-lg me-2">
+                ➕ Add Vote
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarNav" aria-controls="navbarNav"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{{ url_for('home') }}">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('records') }}">Records</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('about') }}">About</a>
-                    </li>
-                </ul>
+
+            <a href="{{ url_for('records') }}"
+               class="btn btn-success btn-lg">
+                📋 View Records
+            </a>
+        </div>
+
+    </div>
+    <!-- Statistics -->
+<div class="row g-4 mb-5 text-center">
+
+    <div class="col-md-4">
+        <div class="card shadow-sm border-0 h-100">
+            <div class="card-body">
+                <h2 class="text-primary">{{ total_voters }}</h2>
+                <h5>Total Voters</h5>
+                <p class="text-muted mb-0">Registered voter records</p>
             </div>
         </div>
-    </nav>
+    </div>
 
-    {% block content %}
-    {% endblock %}
+    <div class="col-md-4">
+        <div class="card shadow-sm border-0 h-100">
+            <div class="card-body">
+                <h2 class="text-success">{{ total_candidates }}</h2>
+                <h5>Total Candidates</h5>
+                <p class="text-muted mb-0">Candidates in records</p>
+            </div>
+        </div>
+    </div>
 
-    <!-- Bootstrap JS Bundle -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+    <div class="col-md-4">
+        <div class="card shadow-sm border-0 h-100">
+            <div class="card-body">
+                <h2 class="text-warning">{{ total_cities }}</h2>
+                <h5>Total Cities</h5>
+                <p class="text-muted mb-0">Cities represented</p>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <!-- Features -->
+    <div class="row g-4 text-center">
+
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm border-0">
+                <div class="card-body">
+                    <h3>📝 Easy Voting</h3>
+                    <p class="text-muted">
+                        Add voter information quickly using a simple form.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm border-0">
+                <div class="card-body">
+                    <h3>📊 Manage Records</h3>
+                    <p class="text-muted">
+                        View, edit and delete voter records easily.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm border-0">
+                <div class="card-body">
+                    <h3>🔒 Secure System</h3>
+                    <p class="text-muted">
+                        Keep voter information organized in one place.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

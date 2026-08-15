@@ -5,6 +5,18 @@
 <div class="container mt-5">
 
     <h2 class="text-center mb-4">Voter Records</h2>
+    <form method="GET" action="{{ url_for('records') }}" class="mb-4">
+    <div class="input-group">
+        <input type="text"
+               name="search"
+               class="form-control"
+               placeholder="Search by Voter Name or Voter ID"
+               value="{{ search }}">
+        <button type="submit" class="btn btn-primary">
+            Search
+        </button>
+    </div>
+</form>
 
     <div class="table-responsive">
         <table class="table table-bordered table-striped table-hover text-center">

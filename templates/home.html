@@ -4,22 +4,23 @@
 
 <div class="container mt-5">
 
-    <!-- Hero Section -->
-    <div class="p-5 mb-5 bg-light rounded-4 text-center shadow-sm">
+    <!-- Welcome / Hero Section -->
+    <div class="p-5 mb-5 bg-light rounded-4 text-center shadow">
 
         <h1 class="display-4 fw-bold text-primary">
             🗳️ Online Voting System
         </h1>
 
         <p class="lead mt-3">
-            A simple, secure and user-friendly voting management system.
+            Welcome to your secure voting management dashboard.
         </p>
 
         <p class="text-muted">
-            Manage voter records, add votes and keep voting information organized.
+            Manage voter records, add votes and organize voting information easily.
         </p>
 
         <div class="mt-4">
+
             <a href="{{ url_for('add_vote') }}"
                class="btn btn-primary btn-lg me-2">
                 ➕ Add Vote
@@ -29,79 +30,177 @@
                class="btn btn-success btn-lg">
                 📋 View Records
             </a>
+
         </div>
 
     </div>
-    <!-- Statistics -->
-<div class="row g-4 mb-5 text-center">
 
-    <div class="col-md-4">
-        <div class="card shadow-sm border-0 h-100">
-            <div class="card-body">
-                <h2 class="text-primary">{{ total_voters }}</h2>
-                <h5>Total Voters</h5>
-                <p class="text-muted mb-0">Registered voter records</p>
+
+    <!-- Dashboard Statistics -->
+    <h3 class="text-center fw-bold mb-4">
+        📊 Dashboard Overview
+    </h3>
+
+    <div class="row g-4 mb-5 text-center">
+
+        <!-- Total Voters -->
+        <div class="col-md-4">
+
+            <div class="card shadow border-0 h-100">
+
+                <div class="card-body p-4">
+
+                    <div class="display-5 mb-2">👥</div>
+
+                    <h2 class="fw-bold text-primary">
+                        {{ total_voters }}
+                    </h2>
+
+                    <h5>Total Voters</h5>
+
+                    <p class="text-muted mb-0">
+                        Registered voter records
+                    </p>
+
+                </div>
+
             </div>
-        </div>
-    </div>
 
-    <div class="col-md-4">
-        <div class="card shadow-sm border-0 h-100">
-            <div class="card-body">
-                <h2 class="text-success">{{ total_candidates }}</h2>
-                <h5>Total Candidates</h5>
-                <p class="text-muted mb-0">Candidates in records</p>
+        </div>
+
+
+        <!-- Total Candidates -->
+        <div class="col-md-4">
+
+            <div class="card shadow border-0 h-100">
+
+                <div class="card-body p-4">
+
+                    <div class="display-5 mb-2">🧑‍💼</div>
+
+                    <h2 class="fw-bold text-success">
+                        {{ total_candidates }}
+                    </h2>
+
+                    <h5>Total Candidates</h5>
+
+                    <p class="text-muted mb-0">
+                        Candidates in records
+                    </p>
+
+                </div>
+
             </div>
-        </div>
-    </div>
 
-    <div class="col-md-4">
-        <div class="card shadow-sm border-0 h-100">
-            <div class="card-body">
-                <h2 class="text-warning">{{ total_cities }}</h2>
-                <h5>Total Cities</h5>
-                <p class="text-muted mb-0">Cities represented</p>
+        </div>
+
+
+        <!-- Total Cities -->
+        <div class="col-md-4">
+
+            <div class="card shadow border-0 h-100">
+
+                <div class="card-body p-4">
+
+                    <div class="display-5 mb-2">🏙️</div>
+
+                    <h2 class="fw-bold text-warning">
+                        {{ total_cities }}
+                    </h2>
+
+                    <h5>Total Cities</h5>
+
+                    <p class="text-muted mb-0">
+                        Cities represented
+                    </p>
+
+                </div>
+
             </div>
+
         </div>
+
     </div>
 
-</div>
 
     <!-- Features -->
-    <div class="row g-4 text-center">
+    <h3 class="text-center fw-bold mb-4">
+        ✨ System Features
+    </h3>
+
+    <div class="row g-4 text-center mb-5">
 
         <div class="col-md-4">
+
             <div class="card h-100 shadow-sm border-0">
-                <div class="card-body">
-                    <h3>📝 Easy Voting</h3>
+
+                <div class="card-body p-4">
+
+                    <div class="display-6 mb-3">📝</div>
+
+                    <h4>Easy Voting</h4>
+
                     <p class="text-muted">
                         Add voter information quickly using a simple form.
                     </p>
+
                 </div>
+
             </div>
+
         </div>
 
-        <div class="col-md-4">
-            <div class="card h-100 shadow-sm border-0">
-                <div class="card-body">
-                    <h3>📊 Manage Records</h3>
-                    <p class="text-muted">
-                        View, edit and delete voter records easily.
-                    </p>
-                </div>
-            </div>
-        </div>
 
         <div class="col-md-4">
+
             <div class="card h-100 shadow-sm border-0">
-                <div class="card-body">
-                    <h3>🔒 Secure System</h3>
+
+                <div class="card-body p-4">
+
+                    <div class="display-6 mb-3">📊</div>
+
+                    <h4>Manage Records</h4>
+
                     <p class="text-muted">
-                        Keep voter information organized in one place.
+                        View, search, edit and delete voter records easily.
                     </p>
+
                 </div>
+
             </div>
+
         </div>
+
+
+        <div class="col-md-4">
+
+            <div class="card h-100 shadow-sm border-0">
+
+                <div class="card-body p-4">
+
+                    <div class="display-6 mb-3">🔒</div>
+
+                    <h4>Secure System</h4>
+
+                    <p class="text-muted">
+                        Login protection keeps the voting system restricted to authorized users.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Footer Message -->
+    <div class="text-center text-muted mb-5">
+
+        <p>
+            🗳️ Online Voting System • Secure • Simple • Organized
+        </p>
 
     </div>
 
